@@ -1,3 +1,11 @@
+$(ready)
+
+function ready(){
+  $('#pushButton').on('click', employeeInfo);
+}
+
+
+
 const employees = [
   {
     name: 'Atticus',
@@ -45,9 +53,11 @@ console.log( employees );
   // use each employee object as the input to the function discribed below
   //console.log the results of each iteration
 
-  for (let worker of employees) {
+  function employeeInfo() {
+    for (let worker of employees) {
     console.log(worker);
     console.log(bonusCalc(worker));
+    }
   }
 
 
@@ -99,17 +109,22 @@ bonusPercentage ..... if rating is 2, % = 0
       bonusPercentage += .05;
     }
     if(worker.annualSalary >= 65000){
-      bonusPercentage -= 0.01
+      bonusPercentage -= 0.01;
     }
     if(bonusPercentage > .13){
-      bonusPercentage = .13
+      bonusPercentage = .13;
     } else if(bonusPercentage < 0){
-      bonusPercentage = 0
+      bonusPercentage = 0;
     }
      
-     let totalBonus = Math.round(worker.annualSalary * bonusPercentage)
-     let totalCompensation = Number(worker.annualSalary) + totalBonus
+     let totalBonus = Math.round(worker.annualSalary * bonusPercentage);
+     let totalCompensation = Number(worker.annualSalary) + totalBonus;
+
+     `Name: ${worker.name}, Bonus Percentage: ${bonusPercentage}, Total Compensation: ${totalCompensation}, Total Bonus: ${totalBonus}`;
+     $('#afterClick').append(`Name: ${worker.name}, Bonus Percentage: ${bonusPercentage}, Total Compensation: ${totalCompensation}, Total Bonus: ${totalBonus} <br>`);
 
      return {name: worker.name, 'bonusPercentage' : bonusPercentage, totalCompensation: totalCompensation, totalBonus: totalBonus};
   }//endfunc
+
+  
 
