@@ -105,7 +105,7 @@ bonusPercentage ..... if rating is 2, % = 0
     } else if (worker.reviewRating === 5) {
       bonusPercentage += 0.1;
     } //ending rating conditionals
-    if (worker.employeeNumber.length >= 4) {
+    if (worker.employeeNumber.length === 4) {
       bonusPercentage += .05;
     }
     if(worker.annualSalary >= 65000){
